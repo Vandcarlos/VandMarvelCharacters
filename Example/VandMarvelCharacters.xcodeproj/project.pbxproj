@@ -93,7 +93,7 @@
 		607FACD21AFB9204008FA782 /* Example for VandMarvelCharacters */ = {
 			isa = PBXGroup;
 			children = (
-				A0BDAB1325B7CD9600A711AB /* Main */,
+				A031294925BA6C880080CAAA /* Features */,
 				A0BDAB0525B7CD3300A711AB /* Supporting Files */,
 			);
 			name = "Example for VandMarvelCharacters";
@@ -125,6 +125,14 @@
 				5DC9109302C3148C55B0C51B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		A031294925BA6C880080CAAA /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A0BDAB1325B7CD9600A711AB /* Main */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 		A0BDAB0525B7CD3300A711AB /* Supporting Files */ = {
@@ -299,13 +307,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VandMarvelCharacters_Example/Pods-VandMarvelCharacters_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
+				"${BUILT_PRODUCTS_DIR}/VandMarvelAPI/VandMarvelAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/VandMarvelCharacters/VandMarvelCharacters.framework",
 				"${BUILT_PRODUCTS_DIR}/VandMarvelUIKit/VandMarvelUIKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VandMarvelAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VandMarvelCharacters.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VandMarvelUIKit.framework",
 			);

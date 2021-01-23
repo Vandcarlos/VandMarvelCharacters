@@ -1,28 +1,67 @@
 PODS:
+  - SkeletonView (1.11.0)
   - SnapKit (5.0.1)
+  - SwiftHash (2.0.2)
   - SwiftLint (0.42.0)
+  - VandMarvelAPI (0.1.0):
+    - SwiftHash
+    - VandMarvelAPI/Classes (= 0.1.0)
+  - VandMarvelAPI/Classes (0.1.0):
+    - SwiftHash
   - VandMarvelCharacters (0.1.0):
     - SnapKit (~> 5.0.0)
-    - VandMarvelCharacters/Classes (= 0.1.0)
+    - VandMarvelAPI
+    - VandMarvelCharacters/APIRepository (= 0.1.0)
+    - VandMarvelCharacters/Core (= 0.1.0)
+    - VandMarvelCharacters/Features (= 0.1.0)
+    - VandMarvelCharacters/LocalRepository (= 0.1.0)
     - VandMarvelUIKit
-  - VandMarvelCharacters/Classes (0.1.0):
+  - VandMarvelCharacters/APIRepository (0.1.0):
     - SnapKit (~> 5.0.0)
+    - VandMarvelAPI
+    - VandMarvelUIKit
+  - VandMarvelCharacters/Core (0.1.0):
+    - SnapKit (~> 5.0.0)
+    - VandMarvelAPI
+    - VandMarvelUIKit
+  - VandMarvelCharacters/Features (0.1.0):
+    - SnapKit (~> 5.0.0)
+    - VandMarvelAPI
+    - VandMarvelUIKit
+  - VandMarvelCharacters/LocalRepository (0.1.0):
+    - SnapKit (~> 5.0.0)
+    - VandMarvelAPI
     - VandMarvelUIKit
   - VandMarvelUIKit (0.1.0):
+    - SkeletonView
+    - SnapKit (~> 5.0.0)
+    - VandMarvelUIKit/Assets (= 0.1.0)
     - VandMarvelUIKit/Classes (= 0.1.0)
-  - VandMarvelUIKit/Classes (0.1.0)
+  - VandMarvelUIKit/Assets (0.1.0):
+    - SkeletonView
+    - SnapKit (~> 5.0.0)
+  - VandMarvelUIKit/Classes (0.1.0):
+    - SkeletonView
+    - SnapKit (~> 5.0.0)
 
 DEPENDENCIES:
+  - SnapKit (~> 5.0.0)
   - SwiftLint
+  - "VandMarvelAPI (from `git@github.com:Vandcarlos/VandMarvelAPI.git`, branch `main`)"
   - VandMarvelCharacters (from `../`)
   - "VandMarvelUIKit (from `git@github.com:Vandcarlos/VandMarvelUIKit.git`, branch `main`)"
 
 SPEC REPOS:
   trunk:
+    - SkeletonView
     - SnapKit
+    - SwiftHash
     - SwiftLint
 
 EXTERNAL SOURCES:
+  VandMarvelAPI:
+    :branch: main
+    :git: "git@github.com:Vandcarlos/VandMarvelAPI.git"
   VandMarvelCharacters:
     :path: "../"
   VandMarvelUIKit:
@@ -30,16 +69,22 @@ EXTERNAL SOURCES:
     :git: "git@github.com:Vandcarlos/VandMarvelUIKit.git"
 
 CHECKOUT OPTIONS:
+  VandMarvelAPI:
+    :commit: b8b2164f48d847a3f4c80183a3b36308d40ecf72
+    :git: "git@github.com:Vandcarlos/VandMarvelAPI.git"
   VandMarvelUIKit:
-    :commit: bd0baab4ac827d91d8a225c7c927adc31ba582ac
+    :commit: 2fa12374e787f330bd1de008de8225ac9268df23
     :git: "git@github.com:Vandcarlos/VandMarvelUIKit.git"
 
 SPEC CHECKSUMS:
+  SkeletonView: cc84ce90a804dd0dd7198dd802833411c8a64eaf
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftHash: 6d312abe61c8359bdef8d0093642f3a70b1c17ba
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
-  VandMarvelCharacters: fb4d98eb59a46565f4df6df607ad51c1176ee495
-  VandMarvelUIKit: 46c856707c38994a3788dead416ac3e002562deb
+  VandMarvelAPI: 7308355482f8cd9d04edb2174b392d8f0e5c1421
+  VandMarvelCharacters: 3096cf84b16a0b7d2b7a3b2ea22f6f96cb8e3abc
+  VandMarvelUIKit: 1a587bde7ccb01f6e02e0985610dd028abc6bbac
 
-PODFILE CHECKSUM: a95bd35a9cf543eb18f7967d3a11c39e0fdac73b
+PODFILE CHECKSUM: b9af3f971bd69e6f15e183fba2504fd6c3b469f7
 
 COCOAPODS: 1.10.1

@@ -8,6 +8,7 @@ target 'VandMarvelCharacters_Example' do
   pod 'SwiftLint'
   pod 'SnapKit', '~> 5.0.0'
   pod 'VandMarvelUIKit', :git => 'git@github.com:Vandcarlos/VandMarvelUIKit.git', :branch => 'main'
+  pod 'VandMarvelAPI', :git => 'git@github.com:Vandcarlos/VandMarvelAPI.git', :branch => 'main'
 
   target 'VandMarvelCharacters_Tests' do
     inherit! :search_paths

@@ -30,11 +30,24 @@ Marvel characters features
 
   s.ios.deployment_target = '11.0'
 
-  s.subspec 'Classes' do |ss|
-      ss.source_files = 'VandMarvelCharacters/Classes/**/*'
+  s.subspec 'Core' do |ss|
+      ss.source_files = 'VandMarvelCharacters/Classes/Core/**/*'
+  end
+
+  s.subspec 'Features' do |ss|
+    ss.source_files = 'VandMarvelCharacters/Classes/Features/**/*'
+  end
+
+  s.subspec 'APIRepository' do |ss|
+      ss.source_files = 'VandMarvelCharacters/Classes/APIRepository/**/*'
+  end
+
+  s.subspec 'LocalRepository' do |ss|
+      ss.source_files = 'VandMarvelCharacters/Classes/LocalRepository/**/*'
   end
 
    s.dependency 'VandMarvelUIKit'
+   s.dependency 'VandMarvelAPI'
    s.dependency 'SnapKit', '~> 5.0.0'
   
 end

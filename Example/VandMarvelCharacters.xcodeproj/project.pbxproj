@@ -13,6 +13,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		813E0DEA9964541F6C0DEF03 /* Pods_VandMarvelCharacters_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */; };
+		A03F6AA225BDC0F3002ABCFD /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AA125BDC0F3002ABCFD /* MainViewRouter.swift */; };
+		A03F6AA625BDC4B5002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */; };
 		A0BDAB1725B7CDB600A711AB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDAB1625B7CDB600A711AB /* MainView.swift */; };
 		F99532AFE4CE5848F0373AD8 /* Pods_VandMarvelCharacters_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AB75F0337AC722C72A37AC /* Pods_VandMarvelCharacters_Example.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		6BFF9D565C65524D1269462B /* Pods-VandMarvelCharacters_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VandMarvelCharacters_Example.release.xcconfig"; path = "Target Support Files/Pods-VandMarvelCharacters_Example/Pods-VandMarvelCharacters_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8AC145149DC48EA2BDD6BC35 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8F12913C5E624C8CC5BCE02D /* Pods-VandMarvelCharacters_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VandMarvelCharacters_Tests.debug.xcconfig"; path = "Target Support Files/Pods-VandMarvelCharacters_Tests/Pods-VandMarvelCharacters_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A03F6AA125BDC0F3002ABCFD /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
+		A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacters.swift; sourceTree = "<group>"; };
 		A0BDAB1625B7CDB600A711AB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VandMarvelCharacters_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F742772463F2EA62F9E67105 /* VandMarvelCharacters.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VandMarvelCharacters.podspec; path = ../VandMarvelCharacters.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -93,7 +97,8 @@
 		607FACD21AFB9204008FA782 /* Example for VandMarvelCharacters */ = {
 			isa = PBXGroup;
 			children = (
-				A031294925BA6C880080CAAA /* Features */,
+				A03F6AA925BDC646002ABCFD /* Mock */,
+				A0BDAB1325B7CD9600A711AB /* Main */,
 				A0BDAB0525B7CD3300A711AB /* Supporting Files */,
 			);
 			name = "Example for VandMarvelCharacters";
@@ -127,12 +132,12 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		A031294925BA6C880080CAAA /* Features */ = {
+		A03F6AA925BDC646002ABCFD /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				A0BDAB1325B7CD9600A711AB /* Main */,
+				A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */,
 			);
-			path = Features;
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		A0BDAB0525B7CD3300A711AB /* Supporting Files */ = {
@@ -151,6 +156,7 @@
 			children = (
 				607FACD71AFB9204008FA782 /* MainViewController.swift */,
 				A0BDAB1625B7CDB600A711AB /* MainView.swift */,
+				A03F6AA125BDC0F3002ABCFD /* MainViewRouter.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -379,6 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03F6AA625BDC4B5002ABCFD /* MockCharacters.swift in Sources */,
+				A03F6AA225BDC0F3002ABCFD /* MainViewRouter.swift in Sources */,
 				607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */,
 				A0BDAB1725B7CDB600A711AB /* MainView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

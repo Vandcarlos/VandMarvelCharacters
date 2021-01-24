@@ -38,28 +38,3 @@ extension MainViewController: MainViewDelegate {
     }
 
 }
-
-class MainViewRouter {
-
-    init(viewController: UIViewController) {
-        self.viewController = viewController
-    }
-
-    private let viewController: UIViewController
-
-    func toListCharacters() {
-        let viewController = VMListCharactersViewController()
-        let interactor = VMListCharactersInteractor()
-        let router = VMListCharactersRouter(viewController: viewController)
-        let presenter = VMListCharactersPresenter(
-            view: viewController,
-            interactor: interactor,
-            router: router
-        )
-
-        viewController.presenter = presenter
-        interactor.presenter = presenter
-
-        self.viewController.navigationController?.pushViewController(viewController, animated: true)
-    }
-}

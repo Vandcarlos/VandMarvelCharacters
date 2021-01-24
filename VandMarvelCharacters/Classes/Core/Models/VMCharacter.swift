@@ -2,7 +2,7 @@
 
 import Foundation
 
-open class VMCharacter {
+open class VMCharacter: Equatable {
 
     public init(id: Int, name: String, description: String) {
         self.id = id
@@ -25,6 +25,10 @@ open class VMCharacter {
                 VMCharactersLocalRepository.delete(character: self)
             }
         }
+    }
+
+    public static func == (lhs: VMCharacter, rhs: VMCharacter) -> Bool {
+        lhs.id == rhs.id
     }
 
 }

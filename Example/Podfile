@@ -13,5 +13,7 @@ target 'VandMarvelCharacters_Example' do
   target 'VandMarvelCharacters_Tests' do
     inherit! :search_paths
 
+    pod 'Fakery'
+
   end
 end

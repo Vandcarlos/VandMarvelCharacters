@@ -15,7 +15,7 @@ public protocol VMCharactersMessages {
 
 }
 
-public final class VMCharactersMessagesDefault: VMCharactersMessages {
+public class VMCharactersMessagesDefault: VMCharactersMessages {
 
     public var alertTitle: String { "Ops" }
     public var alertMessage: String { "Try again later" }

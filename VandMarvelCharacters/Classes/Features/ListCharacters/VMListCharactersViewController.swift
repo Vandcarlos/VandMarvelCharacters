@@ -87,7 +87,7 @@ extension VMListCharactersViewController: VMListCharactersViewToPresenter {
         let tryAgainTitle = VandMarvelCharacters.shared.charactersMessages.tryAgainAction
 
         let tryAgainAction = UIAlertAction(title: tryAgainTitle, style: .default) { _ in
-            self.presenter?.viewDidAppear()
+            self.presenter?.tryAgainDidTap()
         }
 
         alert.addAction(tryAgainAction)

@@ -48,10 +48,15 @@ public class VMListCharactersView: UIView, VMViewCode {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = VMColor.background.color
+        collectionView.showAnimatedGradientSkeleton()
         return collectionView
     }()
 
-    private let emptyState = EmptyStateView()
+    private let emptyState: EmptyStateView = {
+        let view = EmptyStateView()
+        view.isHidden = true
+        return view
+    }()
 
     public func buildHierarchy() {
         addSubview(collectionView)
@@ -69,8 +74,6 @@ public class VMListCharactersView: UIView, VMViewCode {
     }
 
     public func configViews() {
-        emptyState.isHidden = true
-        collectionView.showAnimatedGradientSkeleton()
         emptyState.tryAgainButtonAddTarget(
             self,
             action: #selector(emptyStateTryAgainButtonTouchUpInside),

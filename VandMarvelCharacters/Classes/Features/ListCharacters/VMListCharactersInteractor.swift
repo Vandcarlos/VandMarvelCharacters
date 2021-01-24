@@ -20,6 +20,7 @@ public class VMListCharactersInteractor {
 extension VMListCharactersInteractor: VMListCharactersInteractorToPresenter {
 
     public func fetchCharacters(withQuery query: String?, limit: Int, offset: Int) {
+//        presenter?.didFailOnFetchCharacters(with: VMError.generic, toQuery: query)
         VMCharactersAPIRepository.fetchCharcters(
             limit: limit,
             offset: offset,

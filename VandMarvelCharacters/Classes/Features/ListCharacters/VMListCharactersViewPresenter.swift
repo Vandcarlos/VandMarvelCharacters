@@ -48,19 +48,27 @@ public class VMListCharactersPresenter {
                 characters = []
                 performingRequest = false
                 allCharactersFetched = false
-
                 view.reloadCharacters()
-                fetchMoreCharacters()
             }
         }
     }
 
-    private var performingRequest: Bool = false
+    private var performingRequest = false {
+        didSet {
+            fetchMoreCharacters()
+        }
+    }
 
-    private var allCharactersFetched: Bool = false
+    private var allCharactersFetched = false
+    private var lastRowGetted = 0
+    private var hasError = false
+    private var viewLoaded = false
 
     public func fetchMoreCharacters() {
-        guard !performingRequest, !allCharactersFetched else { return }
+        guard !performingRequest else { return }
+        guard !allCharactersFetched else { return }
+        guard lastRowGetted >= characters.count - loadMoreCharactersWhenLeft else { return }
+        guard !hasError else { return }
 
         performingRequest = true
 
@@ -76,10 +84,12 @@ public class VMListCharactersPresenter {
 extension VMListCharactersPresenter: VMListCharactersPresenterToView {
 
     public var numberOfCharacters: Int {
-        allCharactersFetched ? characters.count : characters.count + numberOfFakeCharacters
+        guard viewLoaded else { return 0 }
+        return allCharactersFetched ? characters.count : characters.count + numberOfFakeCharacters
     }
 
     public func viewDidAppear() {
+        viewLoaded = true
         view.reloadCharacters()
 
         if characters.isEmpty {
@@ -97,16 +107,17 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToView {
     }
 
     public func character(atRow row: Int) -> VMCharacter? {
-        if row >= characters.count - loadMoreCharactersWhenLeft {
-            fetchMoreCharacters()
-        }
+        lastRowGetted = max(row, lastRowGetted)
+
+        fetchMoreCharacters()
 
         return characters[unsafeIndex: row]
     }
 
     public func tryAgainDidTap() {
-        fetchMoreCharacters()
+        hasError = false
         view.reloadCharacters()
+        fetchMoreCharacters()
     }
 
 }
@@ -121,7 +132,7 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToInteractor {
         guard query == currentQuery else { return }
         allCharactersFetched = characters.count < maxOfCharactersPerPageOnFetch
 
-        self.characters.append(contentsOf: characters)
+        self.characters.append(newCharacters: characters)
 
         view.reloadCharacters()
 
@@ -129,8 +140,6 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToInteractor {
             let message = VandMarvelCharacters.shared.charactersMessages.listCharactersEmptyState
             view.showEmptyState(withMessage: message, showTryAgainButton: false)
         }
-
-        performingRequest = false
     }
 
     public func didFailOnFetchCharacters(with error: Error, toQuery query: String?) {
@@ -139,6 +148,8 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToInteractor {
         }
 
         guard query == currentQuery else { return }
+
+        hasError = true
 
         var message: String = VandMarvelCharacters.shared.charactersMessages.alertMessage
 
@@ -158,6 +169,14 @@ fileprivate extension Array where Element == VMCharacter {
 
     subscript(unsafeIndex unsafeIndex: Int) -> VMCharacter? {
         unsafeIndex < count  ? self[unsafeIndex] : nil
+    }
+
+    mutating func append(newCharacters: [VMCharacter]) {
+        let characters = newCharacters
+            .reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
+            .filter { !contains($0) }
+
+        append(contentsOf: characters)
     }
 
 }

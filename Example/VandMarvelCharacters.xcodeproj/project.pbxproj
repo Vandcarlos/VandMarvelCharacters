@@ -15,6 +15,8 @@
 		813E0DEA9964541F6C0DEF03 /* Pods_VandMarvelCharacters_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */; };
 		A03F6AA225BDC0F3002ABCFD /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AA125BDC0F3002ABCFD /* MainViewRouter.swift */; };
 		A03F6AA625BDC4B5002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */; };
+		A03F6AAD25BDC81B002ABCFD /* ListCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */; };
+		A03F6AB225BDCCA4002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */; };
 		A0BDAB1725B7CDB600A711AB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDAB1625B7CDB600A711AB /* MainView.swift */; };
 		F99532AFE4CE5848F0373AD8 /* Pods_VandMarvelCharacters_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AB75F0337AC722C72A37AC /* Pods_VandMarvelCharacters_Example.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		8F12913C5E624C8CC5BCE02D /* Pods-VandMarvelCharacters_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VandMarvelCharacters_Tests.debug.xcconfig"; path = "Target Support Files/Pods-VandMarvelCharacters_Tests/Pods-VandMarvelCharacters_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A03F6AA125BDC0F3002ABCFD /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacters.swift; sourceTree = "<group>"; };
+		A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersTests.swift; sourceTree = "<group>"; };
+		A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacters.swift; sourceTree = "<group>"; };
 		A0BDAB1625B7CDB600A711AB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VandMarvelCharacters_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F742772463F2EA62F9E67105 /* VandMarvelCharacters.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VandMarvelCharacters.podspec; path = ../VandMarvelCharacters.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -108,8 +112,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A03F6AB025BDCC9B002ABCFD /* Mocks */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -138,6 +144,14 @@
 				A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		A03F6AB025BDCC9B002ABCFD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */,
+			);
+			name = Mocks;
 			sourceTree = "<group>";
 		};
 		A0BDAB0525B7CD3300A711AB /* Supporting Files */ = {
@@ -212,6 +226,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				55C91C52E74B6192AB5A75FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +353,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VandMarvelCharacters_Example/Pods-VandMarvelCharacters_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		55C91C52E74B6192AB5A75FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VandMarvelCharacters_Tests/Pods-VandMarvelCharacters_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VandMarvelCharacters_Tests/Pods-VandMarvelCharacters_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5E150B061608194AAAB7B641 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,7 +430,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03F6AB225BDCCA4002ABCFD /* MockCharacters.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				A03F6AAD25BDC81B002ABCFD /* ListCharactersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

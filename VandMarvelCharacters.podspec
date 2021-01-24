@@ -32,22 +32,18 @@ Marvel characters features
 
   s.subspec 'Core' do |ss|
       ss.source_files = 'VandMarvelCharacters/Classes/Core/**/*'
+      ss.dependency 'VandMarvelAPI'
+      ss.dependency 'Realm'
+      ss.dependency 'RealmSwift'
   end
 
   s.subspec 'Features' do |ss|
     ss.source_files = 'VandMarvelCharacters/Classes/Features/**/*'
+    ss.dependency 'VandMarvelUIKit'
+    ss.dependency 'SnapKit', '~> 5.0.0'
   end
 
-  s.subspec 'APIRepository' do |ss|
-      ss.source_files = 'VandMarvelCharacters/Classes/APIRepository/**/*'
-  end
 
-  s.subspec 'LocalRepository' do |ss|
-      ss.source_files = 'VandMarvelCharacters/Classes/LocalRepository/**/*'
-  end
 
-   s.dependency 'VandMarvelUIKit'
-   s.dependency 'VandMarvelAPI'
-   s.dependency 'SnapKit', '~> 5.0.0'
-  
+
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VandMarvelAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
 
         setupWindow()
+        setupAPI()
 
         return true
     }
@@ -28,6 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupWindow() {
         window?.rootViewController = AppDelegate.rootViewController
         window?.makeKeyAndVisible()
+    }
+
+    private func setupAPI() {
+        VandMarvelAPI.shared.baseURL = "https://gateway.marvel.com/v1/public"
+        VandMarvelAPI.shared.auth = VMAuth(
+            privateKey: "4ac0a26675297ec865dd86b84383d7c2e6b142ec",
+            publicKey: "be26991cd47d953b96a8d18b4b384185"
+        )
     }
 
 }

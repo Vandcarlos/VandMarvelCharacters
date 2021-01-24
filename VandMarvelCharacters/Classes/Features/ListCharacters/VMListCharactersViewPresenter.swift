@@ -6,12 +6,13 @@ public protocol VMListCharactersViewToPresenter {
 
     func reloadCharacters()
     func showErrorAlert(withTitle title: String, withMessage message: String)
+    func showEmptyState(withMessage message: String, showTryAgainButton: Bool)
 
 }
 
 public protocol VMListCharactersInteractorToPresenter {
 
-    func fetchCharacters(withQuery query: String?, maxResults: Int)
+    func fetchCharacters(withQuery query: String?, limit: Int, offset: Int)
 
 }
 
@@ -39,40 +40,35 @@ public class VMListCharactersPresenter {
     private let numberOfFakeCharacters = 10
     private let maxOfCharactersPerPageOnFetch = 10
 
-    private var fetchedChracters: [VMCharacter] = [] {
-        didSet {
-            updateFilteredCharacters()
-        }
-    }
-
-    private var filteredCharacters: [VMCharacter] = [] {
-        didSet {
-            view.reloadCharacters()
-        }
-    }
+    private var characters: [VMCharacter] = []
 
     private var currentQuery: String? {
         didSet {
-            updateFilteredCharacters()
+            if oldValue != currentQuery {
+                characters = []
+                performingRequest = false
+                allCharactersFetched = false
+
+                view.reloadCharacters()
+                fetchMoreCharacters()
+            }
         }
     }
 
     private var performingRequest: Bool = false
-    private var allCharactersFetched: Bool = false
 
-    private func updateFilteredCharacters() {
-        if let query = currentQuery {
-            filteredCharacters = fetchedChracters.filter { $0.name.contains(query) }
-        } else {
-            filteredCharacters = fetchedChracters
-        }
-    }
+    private var allCharactersFetched: Bool = false
 
     public func fetchMoreCharacters() {
         guard !performingRequest, !allCharactersFetched else { return }
+
         performingRequest = true
 
-        interactor.fetchCharacters(withQuery: currentQuery, maxResults: maxOfCharactersPerPageOnFetch)
+        interactor.fetchCharacters(
+            withQuery: currentQuery,
+            limit: maxOfCharactersPerPageOnFetch,
+            offset: characters.count
+        )
     }
 
 }
@@ -80,11 +76,16 @@ public class VMListCharactersPresenter {
 extension VMListCharactersPresenter: VMListCharactersPresenterToView {
 
     public var numberOfCharacters: Int {
-        allCharactersFetched ? filteredCharacters.count : filteredCharacters.count + numberOfFakeCharacters
+        allCharactersFetched ? characters.count : characters.count + numberOfFakeCharacters
     }
 
     public func viewDidAppear() {
-        fetchMoreCharacters()
+        view.reloadCharacters()
+
+        if characters.isEmpty {
+            allCharactersFetched = false
+            fetchMoreCharacters()
+        }
     }
 
     public func filter(withQuery query: String?) {
@@ -96,24 +97,49 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToView {
     }
 
     public func character(atRow row: Int) -> VMCharacter? {
-        if row >= filteredCharacters.count - loadMoreCharactersWhenLeft {
+        if row >= characters.count - loadMoreCharactersWhenLeft {
             fetchMoreCharacters()
         }
 
-        return filteredCharacters[unsafeIndex: row]
+        return characters[unsafeIndex: row]
+    }
+
+    public func tryAgainDidTap() {
+        fetchMoreCharacters()
+        view.reloadCharacters()
     }
 
 }
 
 extension VMListCharactersPresenter: VMListCharactersPresenterToInteractor {
 
-    public func didFetchCharacters(_ characters: [VMCharacter]) {
+    public func didFetchCharacters(_ characters: [VMCharacter], toQuery query: String?) {
+        defer {
+            performingRequest = false
+        }
+
+        guard query == currentQuery else { return }
         allCharactersFetched = characters.count < maxOfCharactersPerPageOnFetch
-        fetchedChracters.append(contentsOf: characters)
+
+        self.characters.append(contentsOf: characters)
+
+        view.reloadCharacters()
+
+        if self.characters.isEmpty {
+            let message = VandMarvelCharacters.shared.charactersMessages.listCharactersEmptyState
+            view.showEmptyState(withMessage: message, showTryAgainButton: false)
+        }
+
         performingRequest = false
     }
 
-    public func didFailOnFetchCharacters(with error: Error) {
+    public func didFailOnFetchCharacters(with error: Error, toQuery query: String?) {
+        defer {
+            performingRequest = false
+        }
+
+        guard query == currentQuery else { return }
+
         var message: String = VandMarvelCharacters.shared.charactersMessages.alertMessage
 
         if let error = error as? VMError, error == .noInternet {
@@ -123,7 +149,7 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToInteractor {
         let title = VandMarvelCharacters.shared.charactersMessages.alertTitle
 
         view.showErrorAlert(withTitle: title, withMessage: message)
-        performingRequest = false
+        view.showEmptyState(withMessage: message, showTryAgainButton: true)
     }
 
 }

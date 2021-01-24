@@ -13,6 +13,8 @@ public protocol VMListCharactersPresenterToView: AnyObject {
 
     func character(atRow row: Int) -> VMCharacter?
 
+    func tryAgainDidTap()
+
 }
 
 public class VMListCharactersViewController: VMSearchViewController {
@@ -53,7 +55,10 @@ extension VMListCharactersViewController: VMListCharactersViewDelegate {
         characterAtRow row: Int
     ) -> VMCharacter? {
         presenter?.character(atRow: row)
+    }
 
+    public func listCharactersViewTryAgainButtonDidTap(_ listCharactersView: VMListCharactersView) {
+        presenter?.tryAgainDidTap()
     }
 
 }
@@ -94,6 +99,10 @@ extension VMListCharactersViewController: VMListCharactersViewToPresenter {
         alert.addAction(cancelAction)
 
         present(alert, animated: true)
+    }
+
+    public func showEmptyState(withMessage message: String, showTryAgainButton: Bool) {
+        listCharactersView.showEmptyState(withMessage: message, showTryAgainButton: showTryAgainButton)
     }
 
 }

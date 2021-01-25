@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
         return view
     }()
 
-    private lazy var router = MainViewRouter(viewController: self)
+    private lazy var router = MainViewRouter(navigationController: self.navigationController!)
 
     override func loadView() {
         view = mainView
@@ -34,6 +34,7 @@ extension MainViewController: MainViewDelegate {
     func mainView(_ mainView: MainView, didSelectOption option: MainView.Option) {
         switch option {
         case .listCharacter: router.toListCharacters()
+        case .characterDetails: router.toCharacterDetail()
         }
     }
 

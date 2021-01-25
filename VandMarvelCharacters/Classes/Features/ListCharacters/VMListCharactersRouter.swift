@@ -4,14 +4,31 @@ import UIKit
 
 public class VMListCharactersRouter {
 
-    public init(viewController: UIViewController) {
-        self.viewController = viewController
+    public init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
 
-    private let viewController: UIViewController
+    private let navigationController: UINavigationController
 
 }
 
 extension VMListCharactersRouter: VMListCharactersRouterToPresenter {
+
+    public func openDetails(of character: VMCharacter) {
+        let viewController = VMCharacterDetailsViewController()
+        let interactor = VMCharacterDetailsInteractor()
+        let router = VMCharacterDetailsRouter()
+        let presenter = VMCharacterDetailsPresenter(
+            view: viewController,
+            interactor: interactor,
+            router: router,
+            charater: character
+        )
+
+        viewController.presenter = presenter
+        interactor.presenter = presenter
+
+        navigationController.pushViewController(viewController, animated: true)
+    }
 
 }

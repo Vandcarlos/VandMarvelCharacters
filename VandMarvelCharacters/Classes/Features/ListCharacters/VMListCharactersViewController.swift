@@ -6,12 +6,13 @@ public protocol VMListCharactersPresenterToView: AnyObject {
 
     var numberOfCharacters: Int { get }
 
-    func viewDidAppear()
+    func viewWillAppear()
 
     func filter(withQuery query: String?)
     func cancelFilter()
 
     func character(atRow row: Int) -> VMCharacter?
+    func didSelectCharacter(atRow row: Int)
 
     func tryAgainDidTap()
 
@@ -36,10 +37,9 @@ public class VMListCharactersViewController: VMSearchViewController {
         searchController.searchBar.delegate = self
     }
 
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        presenter?.viewDidAppear()
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
     }
 
 }
@@ -59,6 +59,10 @@ extension VMListCharactersViewController: VMListCharactersViewDelegate {
 
     public func listCharactersViewTryAgainButtonDidTap(_ listCharactersView: VMListCharactersView) {
         presenter?.tryAgainDidTap()
+    }
+
+    public func listCharactersView(_ listCharactersView: VMListCharactersView, didSelectCharacterAtRow row: Int) {
+        presenter?.didSelectCharacter(atRow: row)
     }
 
 }

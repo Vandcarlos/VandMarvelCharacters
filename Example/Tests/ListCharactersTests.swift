@@ -39,7 +39,7 @@ class ListCharactersTests: XCTestCase {
             }
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -61,7 +61,7 @@ class ListCharactersTests: XCTestCase {
             }
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -83,7 +83,7 @@ class ListCharactersTests: XCTestCase {
             }
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -109,7 +109,7 @@ class ListCharactersTests: XCTestCase {
             }
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         wait(for: [onlyFakeExpec], timeout: 1)
 
@@ -149,7 +149,7 @@ class ListCharactersTests: XCTestCase {
             }
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -168,7 +168,7 @@ class ListCharactersTests: XCTestCase {
             showEmptyStateExpec.fulfill()
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -197,7 +197,7 @@ class ListCharactersTests: XCTestCase {
             showEmptyStateExpec.fulfill()
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -215,7 +215,7 @@ class ListCharactersTests: XCTestCase {
             showAlertErrorExpec.fulfill()
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -234,7 +234,7 @@ class ListCharactersTests: XCTestCase {
             showEmptyStateExpec.fulfill()
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         waitForExpectations(timeout: 1)
 
@@ -267,7 +267,7 @@ class ListCharactersTests: XCTestCase {
             }
         }
 
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
 
         wait(for: [onlyFakeExpec, allCharactersExpec], timeout: 1)
 
@@ -284,7 +284,6 @@ class ListCharactersTests: XCTestCase {
         wait(for: [onlyFakeExpecAfterCancelFilter, cancelFilterExpec], timeout: 1)
 
         XCTAssertEqual(view.charctersShowing.count, 5, "Showing all characters after cancel filter")
-
     }
 
 }
@@ -375,6 +374,12 @@ extension ListCharactersTests {
     }
 
     class ListCharactersRouter: VMListCharactersRouterToPresenter {
+
+        var characterToOpen: VMCharacter?
+
+        func openDetails(of character: VMCharacter) {
+            characterToOpen = character
+        }
 
     }
 

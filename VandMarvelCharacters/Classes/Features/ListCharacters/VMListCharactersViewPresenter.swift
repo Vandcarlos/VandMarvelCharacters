@@ -18,6 +18,8 @@ public protocol VMListCharactersInteractorToPresenter {
 
 public protocol VMListCharactersRouterToPresenter {
 
+    func openDetails(of character: VMCharacter)
+
 }
 
 public class VMListCharactersPresenter {
@@ -42,6 +44,11 @@ public class VMListCharactersPresenter {
 
     private var characters: [VMCharacter] = []
 
+    private var allCharactersFetched = false
+    private var lastRowGetted = 0
+    private var hasError = false
+    private var viewLoaded = false
+
     private var currentQuery: String? {
         didSet {
             if oldValue != currentQuery {
@@ -58,11 +65,6 @@ public class VMListCharactersPresenter {
             fetchMoreCharacters()
         }
     }
-
-    private var allCharactersFetched = false
-    private var lastRowGetted = 0
-    private var hasError = false
-    private var viewLoaded = false
 
     public func fetchMoreCharacters() {
         guard !performingRequest else { return }
@@ -88,14 +90,9 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToView {
         return allCharactersFetched ? characters.count : characters.count + numberOfFakeCharacters
     }
 
-    public func viewDidAppear() {
+    public func viewWillAppear() {
         viewLoaded = true
         view.reloadCharacters()
-
-        if characters.isEmpty {
-            allCharactersFetched = false
-            fetchMoreCharacters()
-        }
     }
 
     public func filter(withQuery query: String?) {
@@ -112,6 +109,14 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToView {
         fetchMoreCharacters()
 
         return characters[unsafeIndex: row]
+    }
+
+    public func didSelectCharacter(atRow row: Int) {
+        if let character = characters[unsafeIndex: row] {
+            router.openDetails(of: character)
+        } else {
+            debugPrint("Selected fake character")
+        }
     }
 
     public func tryAgainDidTap() {

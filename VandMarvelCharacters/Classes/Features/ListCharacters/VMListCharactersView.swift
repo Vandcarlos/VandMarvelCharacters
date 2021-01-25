@@ -13,6 +13,8 @@ public protocol VMListCharactersViewDelegate: AnyObject {
         characterAtRow row: Int
     ) -> VMCharacter?
 
+    func listCharactersView(_ listCharactersView: VMListCharactersView, didSelectCharacterAtRow row: Int)
+
 }
 
 public class VMListCharactersView: UIView, VMViewCode {
@@ -138,6 +140,10 @@ extension VMListCharactersView: UICollectionViewDataSource {
 }
 
 extension VMListCharactersView: UICollectionViewDelegate {
+
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.listCharactersView(self, didSelectCharacterAtRow: indexPath.row)
+    }
 
 }
 

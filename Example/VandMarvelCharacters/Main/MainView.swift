@@ -25,10 +25,12 @@ class MainView: UIView, VMViewCode {
     enum Option: CaseIterable {
 
         case listCharacter
+        case characterDetails
 
         var title: String {
             switch self {
             case .listCharacter: return "List characters"
+            case .characterDetails: return "Character details"
             }
         }
 

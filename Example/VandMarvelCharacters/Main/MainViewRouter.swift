@@ -4,11 +4,11 @@ import VandMarvelCharacters
 
 class MainViewRouter {
 
-    init(viewController: UIViewController) {
-        self.viewController = viewController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
 
-    private let viewController: UIViewController
+    private let navigationController: UINavigationController
 
 }
 
@@ -19,7 +19,7 @@ extension MainViewRouter {
     func toListCharacters() {
         let viewController = VMListCharactersViewController()
         let interactor = ListCharactersInteractor()
-        let router = VMListCharactersRouter(viewController: viewController)
+        let router = VMListCharactersRouter(navigationController: navigationController)
         let presenter = VMListCharactersPresenter(
             view: viewController,
             interactor: interactor,
@@ -29,7 +29,7 @@ extension MainViewRouter {
         viewController.presenter = presenter
         interactor.presenter = presenter
 
-        self.viewController.navigationController?.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     class ListCharactersInteractor: VMListCharactersInteractorToPresenter {
@@ -50,6 +50,29 @@ extension MainViewRouter {
             }
         }
 
+    }
+
+}
+
+// MARK: Chacater details
+
+extension MainViewRouter {
+
+    func toCharacterDetail() {
+        let viewController = VMCharacterDetailsViewController()
+        let interactor = VMCharacterDetailsInteractor()
+        let router = VMCharacterDetailsRouter()
+        let presenter = VMCharacterDetailsPresenter(
+            view: viewController,
+            interactor: interactor,
+            router: router,
+            charater: MockCharacters.characters[0]
+        )
+
+        viewController.presenter = presenter
+        interactor.presenter = presenter
+
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }

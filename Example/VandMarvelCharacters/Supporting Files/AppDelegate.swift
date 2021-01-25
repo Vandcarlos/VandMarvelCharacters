@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import VandMarvelAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

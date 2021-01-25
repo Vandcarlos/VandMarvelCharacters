@@ -49,6 +49,13 @@ public class VMFavoriteCharactersPresenter {
         interactor.fetchCharacters(withQuery: currentQuery)
     }
 
+    private func checkEmptyState() {
+        if characters.isEmpty {
+            let message = VandMarvelCharacters.shared.charactersMessages.favoriteCharactersEmptyState
+            view.showEmptyState(withMessage: message)
+        }
+    }
+
 }
 
 extension VMFavoriteCharactersPresenter: VMFavoriteCharactersPresenterToView {
@@ -78,6 +85,7 @@ extension VMFavoriteCharactersPresenter: VMFavoriteCharactersPresenterToView {
     public func didUnfavoriteCharacter(atRow row: Int) {
         characters[row].isFavorited = false
         characters.remove(at: row)
+        checkEmptyState()
     }
 
 }
@@ -88,7 +96,10 @@ extension VMFavoriteCharactersPresenter: VMFavoriteCharactersPresenterToInteract
         guard query == currentQuery else { return }
 
         self.characters = characters
+
         view.reloadCharacters()
+
+        checkEmptyState()
     }
 
 }

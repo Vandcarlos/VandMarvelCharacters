@@ -32,6 +32,7 @@ public class VMFavoriteCharactersViewController: VMSearchViewController {
     }
 
     public override func viewDidLoad() {
+        super.viewDidLoad()
         searchController.searchBar.delegate = self
     }
 

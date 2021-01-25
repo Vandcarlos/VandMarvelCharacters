@@ -109,6 +109,63 @@ class FavoriteCharactersTests: XCTestCase {
         XCTAssertNotEqual(presenter.character(atRow: 5), secondUnfavoritedCharacter)
     }
 
+    func testShowingCorrectEmptyStateMessage() {
+        let showEmptyStateExpec = expectation(description: "Showing empty state")
+
+        class VMCharactersMessages: VMCharactersMessagesDefault {
+
+            override var favoriteCharactersEmptyState: String { "Test empty state" }
+
+        }
+
+        let charactersMessages = VMCharactersMessages()
+
+        VandMarvelCharacters.shared.charactersMessages = charactersMessages
+
+        var emptyStateMessage: String?
+
+        view.showEmptyStateHandler = { message in
+            emptyStateMessage = message
+            showEmptyStateExpec.fulfill()
+        }
+
+        presenter.viewWillAppear()
+
+        waitForExpectations(timeout: 1)
+
+        XCTAssertEqual(charactersMessages.favoriteCharactersEmptyState, emptyStateMessage, "Empty state is equal to setted")
+    }
+
+    func testShowEmptyStateAfterUnfavoriteLastCharacter() {
+        let allCharactersExpec = expectation(description: "Loaded all characters")
+        let showEmptyStateExpec = expectation(description: "Show empty state")
+        interactor.characters = MockCharacters.generateCharacters(quantity: 1)
+
+        view.reloadCharactersHandler = { callNumber in
+            switch callNumber {
+            case 1: allCharactersExpec.fulfill()
+            default: break
+            }
+        }
+
+        var emptyStateMessage: String?
+
+        view.showEmptyStateHandler = { message in
+            emptyStateMessage = message
+            showEmptyStateExpec.fulfill()
+        }
+
+        presenter.viewWillAppear()
+
+        wait(for: [allCharactersExpec], timeout: 1)
+
+        presenter.didUnfavoriteCharacter(atRow: 0)
+
+        waitForExpectations(timeout: 1)
+
+        XCTAssertNotNil(emptyStateMessage, "empty state is showed")
+    }
+
 }
 
 extension FavoriteCharactersTests {

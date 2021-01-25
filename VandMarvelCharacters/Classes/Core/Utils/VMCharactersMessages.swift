@@ -13,6 +13,9 @@ public protocol VMCharactersMessages {
     // MARK: List characters
     var listCharactersEmptyState: String { get }
 
+    // MARK: Favorite characters
+    var favoriteCharactersEmptyState: String { get }
+
 }
 
 public class VMCharactersMessagesDefault: VMCharactersMessages {
@@ -26,5 +29,7 @@ public class VMCharactersMessagesDefault: VMCharactersMessages {
     public var withoutInternetConnection: String { "Without internet" }
 
     public var listCharactersEmptyState: String { "No characters to show" }
+
+    public var favoriteCharactersEmptyState: String { "No favorite characters to show" }
 
 }

@@ -39,6 +39,7 @@ public class VMFavoriteCharactersView: UIView, VMViewCode {
         let label = UILabel()
         label.textColor = VMColor.neutral.color
         label.font = VMFont.body(size: .md).font
+        label.numberOfLines = 0
         label.isHidden = true
         return label
     }()
@@ -73,8 +74,9 @@ public class VMFavoriteCharactersView: UIView, VMViewCode {
 
     public func showEmptyState(withMessage message: String) {
         DispatchQueue.main.async {
-            self.tableView.isHidden = false
-            self.emptyLabel.isHidden = true
+            self.tableView.isHidden = true
+            self.emptyLabel.isHidden = false
+            self.emptyLabel.text = message
         }
     }
 

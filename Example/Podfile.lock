@@ -69,7 +69,7 @@ CHECKOUT OPTIONS:
     :commit: 27c8854e0b12987dacb0bbb1d550a0d6e227feb0
     :git: "git@github.com:Vandcarlos/VandMarvelAPI.git"
   VandMarvelUIKit:
-    :commit: 0d481c9f8b456dfa61ac1d3ab52083a7973b1d62
+    :commit: c785bc8d7c9016323affdd93e86ea9b1bfadeb36
     :git: "git@github.com:Vandcarlos/VandMarvelUIKit.git"
 
 SPEC CHECKSUMS:

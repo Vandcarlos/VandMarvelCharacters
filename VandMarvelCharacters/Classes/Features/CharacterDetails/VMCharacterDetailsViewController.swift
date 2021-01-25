@@ -10,8 +10,6 @@ public protocol VMCharacterDetailsPresenterToView: AnyObject {
 
 public class VMCharacterDetailsViewController: VMBaseViewController {
 
-    public static let title = VandMarvelCharacters.shared.charactersMessages.characterDetailsTitle
-
     public weak var presenter: VMCharacterDetailsPresenterToView?
 
     private let characterDetailsView = VMCharacterDetailsView()
@@ -27,7 +25,7 @@ public class VMCharacterDetailsViewController: VMBaseViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = Self.title
+        title = VandMarvelCharacters.shared.charactersMessages.characterDetailsTitle
     }
 
 }

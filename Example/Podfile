@@ -1,3 +1,6 @@
+source 'https://github.com/Vandcarlos/VandMarvelSpecs.git'
+source 'https://cdn.cocoapods.org/'
+
 use_frameworks!
 
 platform :ios, '11.0'
@@ -10,8 +13,8 @@ target 'VandMarvelCharacters_Example' do
   pod 'SwiftLint'
   pod 'SnapKit', '~> 5.0.0'
 
-  pod 'VandMarvelUIKit', :git => 'git@github.com:Vandcarlos/VandMarvelUIKit.git', :branch => 'main'
-  pod 'VandMarvelAPI', :git => 'git@github.com:Vandcarlos/VandMarvelAPI.git', :branch => 'main'
+  pod 'VandMarvelUIKit'
+  pod 'VandMarvelAPI'
 
   target 'VandMarvelCharacters_Tests' do
     inherit! :search_paths

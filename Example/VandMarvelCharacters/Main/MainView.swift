@@ -30,11 +30,13 @@ class MainView: UIView, VMViewCode {
 
         case listCharacter
         case characterDetails
+        case favoriteCharacters
 
         var title: String {
             switch self {
             case .listCharacter: return "List characters"
             case .characterDetails: return "Character details"
+            case .favoriteCharacters: return "Favorite characters"
             }
         }
 

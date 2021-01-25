@@ -90,3 +90,46 @@ extension MainViewRouter {
     }
 
 }
+
+// MARK: Favorite characters
+
+extension MainViewRouter {
+
+    func toFavoriteCharacters() {
+        let viewController = VMFavoriteCharactersViewController()
+        let router = VMFavoriteCharactersRouter(navigationController: navigationController)
+
+        let interactor = VMFavoriteCharactersInteractor()
+        let presenter = VMFavoriteCharactersPresenter(
+            view: viewController,
+            interactor: interactor,
+            router: router
+        )
+
+        viewController.presenter = presenter
+        interactor.presenter = presenter
+
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    class FavoriteCharactersInteractor: VMFavoriteCharactersInteractorToPresenter {
+
+        var presenter: VMFavoriteCharactersPresenterToInteractor?
+
+        func fetchCharacters(withQuery query: String?) {
+            let characters = filteredCharacters(to: query)
+
+            presenter?.didFetchCharacters(Array(characters), toQuery: query)
+        }
+
+        private func filteredCharacters(to query: String?) -> [VMCharacter] {
+            if let query = query {
+                return MockCharacters.characters.filter { $0.name.starts(with: query) }
+            } else {
+                return MockCharacters.characters
+            }
+        }
+
+    }
+
+}

@@ -35,6 +35,7 @@ extension MainViewController: MainViewDelegate {
         switch option {
         case .listCharacter: router.toListCharacters(dryRun: dryRun)
         case .characterDetails: router.toCharacterDetail()
+        case .favoriteCharacters: router.toFavoriteCharacters()
         }
     }
 

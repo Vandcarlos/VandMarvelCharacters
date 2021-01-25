@@ -202,7 +202,7 @@ extension VMListCharactersView {
         func setupConstraints() {
             contentStackView.snp.makeConstraints { maker in
                 maker.centerX.equalTo(safeAreaLayoutGuide)
-                maker.centerY.equalTo(safeAreaLayoutGuide).offset(-20)
+                maker.centerY.equalTo(safeAreaLayoutGuide).offset(-24)
             }
         }
 

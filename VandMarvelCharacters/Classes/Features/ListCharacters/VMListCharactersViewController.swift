@@ -20,6 +20,8 @@ public protocol VMListCharactersPresenterToView: AnyObject {
 
 public class VMListCharactersViewController: VMSearchViewController {
 
+    public static let title = VandMarvelCharacters.shared.charactersMessages.listCharactersTitle
+
     public weak var presenter: VMListCharactersPresenterToView?
 
     private lazy var listCharactersView: VMListCharactersView = {
@@ -39,6 +41,7 @@ public class VMListCharactersViewController: VMSearchViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        title = Self.title
         presenter?.viewWillAppear()
     }
 

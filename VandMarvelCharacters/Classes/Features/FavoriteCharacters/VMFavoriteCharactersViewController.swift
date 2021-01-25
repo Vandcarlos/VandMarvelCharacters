@@ -19,6 +19,8 @@ public protocol VMFavoriteCharactersPresenterToView: AnyObject {
 
 public class VMFavoriteCharactersViewController: VMSearchViewController {
 
+    public static let title = VandMarvelCharacters.shared.charactersMessages.favoriteCharactersTitle
+
     public weak var presenter: VMFavoriteCharactersPresenterToView?
 
     private lazy var favoriteCharactersView: VMFavoriteCharactersView = {
@@ -38,6 +40,7 @@ public class VMFavoriteCharactersViewController: VMSearchViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        title = Self.title
         presenter?.viewWillAppear()
     }
 

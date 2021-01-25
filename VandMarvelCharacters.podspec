@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Marvel characters features
+The character features, like list, details and favorite
                        DESC
 
   s.homepage         = 'https://github.com/Vandcarlos/VandMarvelCharacters'
@@ -29,6 +29,7 @@ Marvel characters features
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
+  s.swift_versions = '5.0'
 
   s.subspec 'Core' do |ss|
       ss.source_files = 'VandMarvelCharacters/Classes/Core/**/*'

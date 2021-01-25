@@ -17,6 +17,7 @@
 		A03F6AA625BDC4B5002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */; };
 		A03F6AAD25BDC81B002ABCFD /* ListCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */; };
 		A03F6AB225BDCCA4002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */; };
+		A07F5C2925BF091100B1B487 /* VandMarvelAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F5C2825BF091100B1B487 /* VandMarvelAPIConfig.swift */; };
 		A0BDAB1725B7CDB600A711AB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDAB1625B7CDB600A711AB /* MainView.swift */; };
 		F99532AFE4CE5848F0373AD8 /* Pods_VandMarvelCharacters_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AB75F0337AC722C72A37AC /* Pods_VandMarvelCharacters_Example.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacters.swift; sourceTree = "<group>"; };
 		A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersTests.swift; sourceTree = "<group>"; };
 		A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacters.swift; sourceTree = "<group>"; };
+		A07F5C2825BF091100B1B487 /* VandMarvelAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VandMarvelAPIConfig.swift; sourceTree = "<group>"; };
 		A0BDAB1625B7CDB600A711AB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VandMarvelCharacters_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F742772463F2EA62F9E67105 /* VandMarvelCharacters.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VandMarvelCharacters.podspec; path = ../VandMarvelCharacters.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -160,6 +162,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				A07F5C2825BF091100B1B487 /* VandMarvelAPIConfig.swift */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -226,6 +229,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				EC6E3C4BC7B4A25E4B884E8C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,7 +331,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VandMarvelCharacters_Example/Pods-VandMarvelCharacters_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
@@ -339,7 +342,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
@@ -394,6 +396,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n  ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		EC6E3C4BC7B4A25E4B884E8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VandMarvelCharacters_Tests/Pods-VandMarvelCharacters_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VandMarvelCharacters_Tests/Pods-VandMarvelCharacters_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -406,6 +426,7 @@
 				607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */,
 				A0BDAB1725B7CDB600A711AB /* MainView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				A07F5C2925BF091100B1B487 /* VandMarvelAPIConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         setupWindow()
 
+        VandMarvelConfig.run()
+
         return true
     }
 

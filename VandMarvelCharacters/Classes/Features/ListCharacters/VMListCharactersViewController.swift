@@ -61,7 +61,10 @@ extension VMListCharactersViewController: VMListCharactersViewDelegate {
         presenter?.tryAgainDidTap()
     }
 
-    public func listCharactersView(_ listCharactersView: VMListCharactersView, didSelectCharacterAtRow row: Int) {
+    public func listCharactersView(
+        _ listCharactersView: VMListCharactersView,
+        didSelectCharacterAtRow row: Int
+    ) {
         presenter?.didSelectCharacter(atRow: row)
     }
 

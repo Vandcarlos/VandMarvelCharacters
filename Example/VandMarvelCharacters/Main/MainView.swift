@@ -5,7 +5,11 @@ import SnapKit
 
 protocol MainViewDelegate: AnyObject {
 
-    func mainView(_ mainView: MainView, didSelectOption option: MainView.Option)
+    func mainView(
+        _ mainView: MainView,
+        didSelectOption option: MainView.Option,
+        dryRun: Bool
+    )
 
 }
 
@@ -36,6 +40,20 @@ class MainView: UIView, VMViewCode {
 
     }
 
+    private let dryRunStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        return stackView
+    }()
+
+    private let dryRunLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enable dry run"
+        return label
+    }()
+
+    private let dryRunSwitch = UISwitch()
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(OptionCell.self)
@@ -45,12 +63,22 @@ class MainView: UIView, VMViewCode {
     }()
 
     func buildHierarchy() {
+        dryRunStackView.addArrangedSubview(dryRunLabel)
+        dryRunStackView.addArrangedSubview(dryRunSwitch)
+
+        addSubview(dryRunStackView)
+
         addSubview(tableView)
     }
 
     func setupConstraints() {
+        dryRunStackView.snp.makeConstraints { maker in
+            maker.top.leading.trailing.equalTo(safeAreaLayoutGuide).inset(8)
+        }
+
         tableView.snp.makeConstraints { maker in
-            maker.edges.equalTo(self)
+            maker.top.equalTo(dryRunStackView.snp.bottom)
+            maker.leading.bottom.trailing.equalTo(safeAreaLayoutGuide).inset(8)
         }
     }
 
@@ -77,7 +105,7 @@ extension MainView: UITableViewDataSource {
 extension MainView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.mainView(self, didSelectOption: Option.allCases[indexPath.row])
+        delegate?.mainView(self, didSelectOption: Option.allCases[indexPath.row], dryRun: dryRunSwitch.isOn)
     }
 
 }

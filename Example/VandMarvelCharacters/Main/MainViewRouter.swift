@@ -16,18 +16,32 @@ class MainViewRouter {
 
 extension MainViewRouter {
 
-    func toListCharacters() {
+    func toListCharacters(dryRun: Bool) {
         let viewController = VMListCharactersViewController()
-        let interactor = ListCharactersInteractor()
         let router = VMListCharactersRouter(navigationController: navigationController)
-        let presenter = VMListCharactersPresenter(
-            view: viewController,
-            interactor: interactor,
-            router: router
-        )
+
+        let presenter: VMListCharactersPresenter
+
+        if dryRun {
+            let interactor = ListCharactersInteractor()
+            presenter = VMListCharactersPresenter(
+                view: viewController,
+                interactor: interactor,
+                router: router
+            )
+
+            interactor.presenter = presenter
+        } else {
+            let interactor = VMListCharactersInteractor()
+            presenter = VMListCharactersPresenter(
+                view: viewController,
+                interactor: interactor,
+                router: router
+            )
+            interactor.presenter = presenter
+        }
 
         viewController.presenter = presenter
-        interactor.presenter = presenter
 
         navigationController.pushViewController(viewController, animated: true)
     }

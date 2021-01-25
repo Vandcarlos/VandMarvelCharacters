@@ -31,9 +31,9 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewDelegate {
 
-    func mainView(_ mainView: MainView, didSelectOption option: MainView.Option) {
+    func mainView(_ mainView: MainView, didSelectOption option: MainView.Option, dryRun: Bool) {
         switch option {
-        case .listCharacter: router.toListCharacters()
+        case .listCharacter: router.toListCharacters(dryRun: dryRun)
         case .characterDetails: router.toCharacterDetail()
         }
     }

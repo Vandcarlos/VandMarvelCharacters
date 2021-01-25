@@ -32,10 +32,10 @@ The character features, like list, details and favorite
   s.swift_versions = '5.0'
 
   s.subspec 'Core' do |ss|
-      ss.source_files = 'VandMarvelCharacters/Classes/Core/**/*'
-      ss.dependency 'VandMarvelAPI'
-      ss.dependency 'Realm'
-      ss.dependency 'RealmSwift'
+    ss.source_files = 'VandMarvelCharacters/Classes/Core/**/*'
+    ss.dependency 'VandMarvelAPI'
+    ss.dependency 'Realm'
+    ss.dependency 'RealmSwift'
   end
 
   s.subspec 'Features' do |ss|

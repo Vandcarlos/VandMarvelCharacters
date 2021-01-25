@@ -14,14 +14,14 @@ PODS:
     - VandMarvelAPI/Classes (= 1.0.0)
   - VandMarvelAPI/Classes (1.0.0):
     - SwiftHash
-  - VandMarvelCharacters (0.1.0):
-    - VandMarvelCharacters/Core (= 0.1.0)
-    - VandMarvelCharacters/Features (= 0.1.0)
-  - VandMarvelCharacters/Core (0.1.0):
+  - VandMarvelCharacters (1.0.0):
+    - VandMarvelCharacters/Core (= 1.0.0)
+    - VandMarvelCharacters/Features (= 1.0.0)
+  - VandMarvelCharacters/Core (1.0.0):
     - Realm
     - RealmSwift
     - VandMarvelAPI
-  - VandMarvelCharacters/Features (0.1.0):
+  - VandMarvelCharacters/Features (1.0.0):
     - SnapKit (~> 5.0.0)
     - VandMarvelUIKit
   - VandMarvelUIKit (1.0.0):
@@ -70,9 +70,9 @@ SPEC CHECKSUMS:
   SwiftHash: 6d312abe61c8359bdef8d0093642f3a70b1c17ba
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
   VandMarvelAPI: 090354e9d473812535e98b3380b494cac8d80d4c
-  VandMarvelCharacters: 58e9f4a136c4ec3eb3d31e86317e43a58ad42666
+  VandMarvelCharacters: 858c5acbeec3d915364b342cb5c2e581e76824d3
   VandMarvelUIKit: 2701b6b082ee703d971669b1364429f4b04f790a
 
-PODFILE CHECKSUM: e62fe24608db0ae6048d1db7165959b3c5a5a469
+PODFILE CHECKSUM: ec6d90100b32df96dfb9490776d43b06bdea2f92
 
 COCOAPODS: 1.10.1

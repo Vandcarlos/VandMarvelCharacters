@@ -11,13 +11,13 @@
 		607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		813E0DEA9964541F6C0DEF03 /* Pods_VandMarvelCharacters_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */; };
 		A03F6AA225BDC0F3002ABCFD /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AA125BDC0F3002ABCFD /* MainViewRouter.swift */; };
 		A03F6AA625BDC4B5002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AA525BDC4B5002ABCFD /* MockCharacters.swift */; };
 		A03F6AAD25BDC81B002ABCFD /* ListCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */; };
 		A03F6AB225BDCCA4002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */; };
 		A07F5C2925BF091100B1B487 /* VandMarvelAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F5C2825BF091100B1B487 /* VandMarvelAPIConfig.swift */; };
+		A07F5C7625BF0DD200B1B487 /* CharacterDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F5C7525BF0DD200B1B487 /* CharacterDetailsTests.swift */; };
 		A0BDAB1725B7CDB600A711AB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDAB1625B7CDB600A711AB /* MainView.swift */; };
 		F99532AFE4CE5848F0373AD8 /* Pods_VandMarvelCharacters_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AB75F0337AC722C72A37AC /* Pods_VandMarvelCharacters_Example.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* VandMarvelCharacters_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VandMarvelCharacters_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6BFF9D565C65524D1269462B /* Pods-VandMarvelCharacters_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VandMarvelCharacters_Example.release.xcconfig"; path = "Target Support Files/Pods-VandMarvelCharacters_Example/Pods-VandMarvelCharacters_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8AC145149DC48EA2BDD6BC35 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8F12913C5E624C8CC5BCE02D /* Pods-VandMarvelCharacters_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VandMarvelCharacters_Tests.debug.xcconfig"; path = "Target Support Files/Pods-VandMarvelCharacters_Tests/Pods-VandMarvelCharacters_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersTests.swift; sourceTree = "<group>"; };
 		A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacters.swift; sourceTree = "<group>"; };
 		A07F5C2825BF091100B1B487 /* VandMarvelAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VandMarvelAPIConfig.swift; sourceTree = "<group>"; };
+		A07F5C7525BF0DD200B1B487 /* CharacterDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTests.swift; sourceTree = "<group>"; };
 		A0BDAB1625B7CDB600A711AB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VandMarvelCharacters_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F742772463F2EA62F9E67105 /* VandMarvelCharacters.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VandMarvelCharacters.podspec; path = ../VandMarvelCharacters.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -114,10 +114,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A07F5C7225BF0CD400B1B487 /* Core */,
+				A07F5C6D25BF0CA000B1B487 /* Features */,
 				A03F6AB025BDCC9B002ABCFD /* Mocks */,
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
-				A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -154,6 +154,22 @@
 				A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */,
 			);
 			name = Mocks;
+			sourceTree = "<group>";
+		};
+		A07F5C6D25BF0CA000B1B487 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */,
+				A07F5C7525BF0DD200B1B487 /* CharacterDetailsTests.swift */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		A07F5C7225BF0CD400B1B487 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		A0BDAB0525B7CD3300A711AB /* Supporting Files */ = {
@@ -434,8 +450,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07F5C7625BF0DD200B1B487 /* CharacterDetailsTests.swift in Sources */,
 				A03F6AB225BDCCA4002ABCFD /* MockCharacters.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				A03F6AAD25BDC81B002ABCFD /* ListCharactersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

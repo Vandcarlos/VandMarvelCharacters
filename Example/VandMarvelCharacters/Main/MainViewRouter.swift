@@ -66,7 +66,7 @@ extension MainViewRouter {
             view: viewController,
             interactor: interactor,
             router: router,
-            charater: MockCharacters.characters[0]
+            character: MockCharacters.characters[0]
         )
 
         viewController.presenter = presenter

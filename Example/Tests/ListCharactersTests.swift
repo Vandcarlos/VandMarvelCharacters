@@ -21,13 +21,6 @@ class ListCharactersTests: XCTestCase {
 
         view.presenter = presenter
         interactor.presenter = presenter
-
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
     }
 
     func testShowFakeCharactersOnAppear() {
@@ -286,9 +279,31 @@ class ListCharactersTests: XCTestCase {
         XCTAssertEqual(view.charctersShowing.count, 5, "Showing all characters after cancel filter")
     }
 
-}
+    func testOpenCorrectCharacter() {
+        let onlyFakeExpec = expectation(description: "Loaded only fake characters")
+        let allCharactersExpec = expectation(description: "Loaded all characters")
+        interactor.characters = MockCharacters.generateCharacters(quantity: 4)
 
-import Foundation
+        view.reloadCharactersHandler = { callNumber in
+            switch callNumber {
+            case 1: onlyFakeExpec.fulfill()
+            case 2: allCharactersExpec.fulfill()
+            default: break
+            }
+        }
+
+        presenter.viewWillAppear()
+
+        waitForExpectations(timeout: 1)
+
+
+        presenter.didSelectCharacter(atRow: 2)
+
+        XCTAssertEqual(router.characterToOpen, interactor.characters[2])
+
+    }
+
+}
 
 extension ListCharactersTests {
 
@@ -382,6 +397,5 @@ extension ListCharactersTests {
         }
 
     }
-
 
 }

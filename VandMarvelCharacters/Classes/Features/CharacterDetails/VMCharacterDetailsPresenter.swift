@@ -20,12 +20,12 @@ public class VMCharacterDetailsPresenter {
         view: VMCharacterDetailsViewToPresenter,
         interactor: VMCharacterDetailsInteractorToPresenter,
         router: VMCharacterDetailsRouterToPresenter,
-        charater: VMCharacter
+        character: VMCharacter
     ) {
         self.view = view
         self.interactor = interactor
         self.router = router
-        self.character = charater
+        self.character = character
     }
 
     private let character: VMCharacter

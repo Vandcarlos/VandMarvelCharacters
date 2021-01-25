@@ -22,7 +22,7 @@ extension VMListCharactersRouter: VMListCharactersRouterToPresenter {
             view: viewController,
             interactor: interactor,
             router: router,
-            charater: character
+            character: character
         )
 
         viewController.presenter = presenter

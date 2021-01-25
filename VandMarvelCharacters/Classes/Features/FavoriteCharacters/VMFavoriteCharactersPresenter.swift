@@ -37,7 +37,13 @@ public class VMFavoriteCharactersPresenter {
 
     private var characters: [VMCharacter] = []
 
-    private var currentQuery: String?
+    private var currentQuery: String? {
+        didSet {
+            if currentQuery != oldValue {
+                fetchCharacters()
+            }
+        }
+    }
 
     private func fetchCharacters() {
         interactor.fetchCharacters(withQuery: currentQuery)
@@ -61,7 +67,7 @@ extension VMFavoriteCharactersPresenter: VMFavoriteCharactersPresenterToView {
         currentQuery = nil
     }
 
-    public func character(atRow row: Int) -> VMCharacter? {
+    public func character(atRow row: Int) -> VMCharacter {
         characters[row]
     }
 

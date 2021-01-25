@@ -296,11 +296,9 @@ class ListCharactersTests: XCTestCase {
 
         waitForExpectations(timeout: 1)
 
-
         presenter.didSelectCharacter(atRow: 2)
 
         XCTAssertEqual(router.characterToOpen, interactor.characters[2])
-
     }
 
 }

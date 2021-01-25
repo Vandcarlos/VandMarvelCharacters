@@ -11,7 +11,7 @@ public protocol VMFavoriteCharactersPresenterToView: AnyObject {
     func filter(withQuery query: String?)
     func cancelFilter()
 
-    func character(atRow row: Int) -> VMCharacter?
+    func character(atRow row: Int) -> VMCharacter
     func didSelectCharacter(atRow row: Int)
     func didUnfavoriteCharacter(atRow row: Int)
 

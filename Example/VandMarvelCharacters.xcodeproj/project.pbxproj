@@ -18,6 +18,7 @@
 		A03F6AB225BDCCA4002ABCFD /* MockCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */; };
 		A07F5C2925BF091100B1B487 /* VandMarvelAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F5C2825BF091100B1B487 /* VandMarvelAPIConfig.swift */; };
 		A07F5C7625BF0DD200B1B487 /* CharacterDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F5C7525BF0DD200B1B487 /* CharacterDetailsTests.swift */; };
+		A07F5D1A25BF380700B1B487 /* FavoriteCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F5D1925BF380600B1B487 /* FavoriteCharactersTests.swift */; };
 		A0BDAB1725B7CDB600A711AB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BDAB1625B7CDB600A711AB /* MainView.swift */; };
 		F99532AFE4CE5848F0373AD8 /* Pods_VandMarvelCharacters_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AB75F0337AC722C72A37AC /* Pods_VandMarvelCharacters_Example.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		A03F6AB125BDCCA4002ABCFD /* MockCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacters.swift; sourceTree = "<group>"; };
 		A07F5C2825BF091100B1B487 /* VandMarvelAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VandMarvelAPIConfig.swift; sourceTree = "<group>"; };
 		A07F5C7525BF0DD200B1B487 /* CharacterDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTests.swift; sourceTree = "<group>"; };
+		A07F5D1925BF380600B1B487 /* FavoriteCharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCharactersTests.swift; sourceTree = "<group>"; };
 		A0BDAB1625B7CDB600A711AB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC1EF90B9F9691A807F732A1 /* Pods_VandMarvelCharacters_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VandMarvelCharacters_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F742772463F2EA62F9E67105 /* VandMarvelCharacters.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VandMarvelCharacters.podspec; path = ../VandMarvelCharacters.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -161,6 +163,7 @@
 			children = (
 				A03F6AAC25BDC81B002ABCFD /* ListCharactersTests.swift */,
 				A07F5C7525BF0DD200B1B487 /* CharacterDetailsTests.swift */,
+				A07F5D1925BF380600B1B487 /* FavoriteCharactersTests.swift */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				A07F5C7625BF0DD200B1B487 /* CharacterDetailsTests.swift in Sources */,
 				A03F6AB225BDCCA4002ABCFD /* MockCharacters.swift in Sources */,
 				A03F6AAD25BDC81B002ABCFD /* ListCharactersTests.swift in Sources */,
+				A07F5D1A25BF380700B1B487 /* FavoriteCharactersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

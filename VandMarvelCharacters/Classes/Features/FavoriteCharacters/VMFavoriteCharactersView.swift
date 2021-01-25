@@ -65,19 +65,15 @@ public class VMFavoriteCharactersView: UIView, VMViewCode {
     }
 
     public func reloadData() {
-        DispatchQueue.main.async {
-            self.tableView.isHidden = false
-            self.emptyLabel.isHidden = true
-            self.tableView.reloadData()
-        }
+        tableView.isHidden = false
+        emptyLabel.isHidden = true
+        tableView.reloadData()
     }
 
     public func showEmptyState(withMessage message: String) {
-        DispatchQueue.main.async {
-            self.tableView.isHidden = true
-            self.emptyLabel.isHidden = false
-            self.emptyLabel.text = message
-        }
+        tableView.isHidden = true
+        emptyLabel.isHidden = false
+        emptyLabel.text = message
     }
 
 }

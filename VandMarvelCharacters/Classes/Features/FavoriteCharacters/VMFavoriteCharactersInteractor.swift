@@ -17,8 +17,10 @@ public class VMFavoriteCharactersInteractor {
 extension VMFavoriteCharactersInteractor: VMFavoriteCharactersInteractorToPresenter {
 
     public func fetchCharacters(withQuery query: String?) {
-        VMCharactersLocalRepository.getAll(filterByName: query) { [weak self] characters in
-            self?.presenter?.didFetchCharacters(characters, toQuery: query)
+        VMCharactersLocalRepository.getAll(filterByName: query) { characters in
+            DispatchQueue.main.async { [weak self] in
+                self?.presenter?.didFetchCharacters(characters, toQuery: query)
+            }
         }
     }
 

@@ -92,6 +92,7 @@ extension VMListCharactersPresenter: VMListCharactersPresenterToView {
 
     public func viewWillAppear() {
         viewLoaded = true
+        hasError = false
         view.reloadCharacters()
     }
 

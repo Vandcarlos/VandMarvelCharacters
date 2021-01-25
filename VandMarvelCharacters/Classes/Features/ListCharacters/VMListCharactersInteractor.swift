@@ -24,10 +24,16 @@ extension VMListCharactersInteractor: VMListCharactersInteractorToPresenter {
             limit: limit,
             offset: offset,
             nameStartsWith: query
-        ) { [weak self] result in
+        ) { result in
             switch result {
-            case .success(let characters): self?.presenter?.didFetchCharacters(characters, toQuery: query)
-            case .failure(let error): self?.presenter?.didFailOnFetchCharacters(with: error, toQuery: query)
+            case .success(let characters):
+                DispatchQueue.main.async { [weak self] in
+                    self?.presenter?.didFetchCharacters(characters, toQuery: query)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async { [weak self] in
+                    self?.presenter?.didFailOnFetchCharacters(with: error, toQuery: query)
+                }
             }
         }
     }

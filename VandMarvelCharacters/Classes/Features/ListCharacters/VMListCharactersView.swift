@@ -80,20 +80,16 @@ public class VMListCharactersView: UIView, VMViewCode {
     }
 
     public func reloadData() {
-        DispatchQueue.main.async { [weak self] in
-            self?.emptyState.isHidden = true
-            self?.collectionView.isHidden = false
-            self?.collectionView.reloadData()
-        }
+        emptyState.isHidden = true
+        collectionView.isHidden = false
+        collectionView.reloadData()
     }
 
     public func showEmptyState(withMessage message: String, showTryAgainButton: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.emptyState.isHidden = false
-            self?.collectionView.isHidden = true
-            self?.emptyState.message = message
-            self?.emptyState.tryAgainButtonIsHidden = !showTryAgainButton
-        }
+        emptyState.isHidden = false
+        collectionView.isHidden = true
+        emptyState.message = message
+        emptyState.tryAgainButtonIsHidden = !showTryAgainButton
     }
 
     @objc private func emptyStateTryAgainButtonTouchUpInside() {

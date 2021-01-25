@@ -73,14 +73,14 @@ extension VMFavoriteCharactersPresenter: VMFavoriteCharactersPresenterToView {
         characters[row].isFavorited = false
         characters.remove(at: row)
     }
-    
+
 }
 
 extension VMFavoriteCharactersPresenter: VMFavoriteCharactersPresenterToInteractor {
 
     public func didFetchCharacters(_ characters: [VMCharacter], toQuery query: String?) {
         guard query == currentQuery else { return }
-    
+
         self.characters = characters
         view.reloadCharacters()
     }

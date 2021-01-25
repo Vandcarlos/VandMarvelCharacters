@@ -6,14 +6,10 @@ import SkeletonView
 
 public protocol VMListCharactersViewDelegate: AnyObject {
 
-    func listCharactersViewNumberOfCharacters(_ listCharactersView: VMListCharactersView) -> Int?
-    func listCharactersViewTryAgainButtonDidTap(_ listCharactersView: VMListCharactersView)
-    func listCharactersView(
-        _ listCharactersView: VMListCharactersView,
-        characterAtRow row: Int
-    ) -> VMCharacter?
-
-    func listCharactersView(_ listCharactersView: VMListCharactersView, didSelectCharacterAtRow row: Int)
+    func listCharactersViewNumberOfCharacters(_ view: VMListCharactersView) -> Int?
+    func listCharactersViewTryAgainButtonDidTap(_ view: VMListCharactersView)
+    func listCharactersView(_ view: VMListCharactersView, characterAtRow row: Int) -> VMCharacter?
+    func listCharactersView(_ view: VMListCharactersView, didSelectCharacterAtRow row: Int)
 
 }
 

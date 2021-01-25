@@ -46,25 +46,19 @@ public class VMListCharactersViewController: VMSearchViewController {
 
 extension VMListCharactersViewController: VMListCharactersViewDelegate {
 
-    public func listCharactersViewNumberOfCharacters(_ listCharactersView: VMListCharactersView) -> Int? {
+    public func listCharactersViewNumberOfCharacters(_ view: VMListCharactersView) -> Int? {
         presenter?.numberOfCharacters
     }
 
-    public func listCharactersView(
-        _ listCharactersView: VMListCharactersView,
-        characterAtRow row: Int
-    ) -> VMCharacter? {
+    public func listCharactersView(_ view: VMListCharactersView, characterAtRow row: Int) -> VMCharacter? {
         presenter?.character(atRow: row)
     }
 
-    public func listCharactersViewTryAgainButtonDidTap(_ listCharactersView: VMListCharactersView) {
+    public func listCharactersViewTryAgainButtonDidTap(_ view: VMListCharactersView) {
         presenter?.tryAgainDidTap()
     }
 
-    public func listCharactersView(
-        _ listCharactersView: VMListCharactersView,
-        didSelectCharacterAtRow row: Int
-    ) {
+    public func listCharactersView(_ view: VMListCharactersView, didSelectCharacterAtRow row: Int) {
         presenter?.didSelectCharacter(atRow: row)
     }
 

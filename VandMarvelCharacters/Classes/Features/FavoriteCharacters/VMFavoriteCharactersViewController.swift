@@ -48,7 +48,10 @@ extension VMFavoriteCharactersViewController: VMFavoriteCharactersViewDelegate {
         presenter?.numberOfCharacters
     }
 
-    public func favoriteCharacters(_ view: VMFavoriteCharactersView, characterAtRow row: Int) -> VMCharacter? {
+    public func favoriteCharacters(
+        _ view: VMFavoriteCharactersView,
+        characterAtRow row: Int
+    ) -> VMCharacter? {
         presenter?.character(atRow: row)
     }
 

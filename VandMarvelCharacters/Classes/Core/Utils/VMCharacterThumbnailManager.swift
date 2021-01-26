@@ -15,7 +15,7 @@ public final class VMCharacterThumbnailManager {
     }()
 
     private class func filePath(toName name: String) -> URL {
-        thumbnailsPath.appendingPathComponent(name)
+        thumbnailsPath.appendingPathComponent(name.replacingOccurrences(of: "/", with: "_"))
     }
 
     public class func save(image: UIImage, withName name: String) {

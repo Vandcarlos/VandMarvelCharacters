@@ -55,6 +55,8 @@ public class VMListCharactersPresenter {
                 characters = []
                 performingRequest = false
                 allCharactersFetched = false
+                hasError = false
+                lastRowGetted = 0
                 view.reloadCharacters()
             }
         }
